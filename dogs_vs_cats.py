@@ -310,7 +310,7 @@ def predict_image():
     #raw_data = io.BytesIO(fd.read())
     #image = Image.open(raw_data)
 
-    for root, dirs, files in os.walk('test_images'):
+    for root, dirs, files in os.walk('modelfiles/test_images'):
         for name in files:
             image_path = os.path.join(root, name)
             image = Image.open(image_path)
@@ -367,8 +367,7 @@ def main():
     print('predicting images...')
     predict_image()
 
-    print('press any key to continue...')
-    input()
+    #input('press enter to continue...')
 
 
 if __name__ == "__main__":
