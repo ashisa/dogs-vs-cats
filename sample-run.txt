@@ -1,0 +1,109 @@
+Using TensorFlow backend.
+training simple cnn...
+Found 2048 images belonging to 2 classes.
+Found 832 images belonging to 2 classes.
+Epoch 1/30
+2019-02-06 17:25:11.990768: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\platform\cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2019-02-06 17:25:12.894899: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\gpu\gpu_device.cc:1105] Found device 0 with properties:
+name: GeForce GTX 1050 major: 6 minor: 1 memoryClockRate(GHz): 1.493
+pciBusID: 0000:02:00.0
+totalMemory: 2.00GiB freeMemory: 1.61GiB
+2019-02-06 17:25:12.908482: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1050, pci bus id: 0000:02:00.0, compute capability: 6.1)
+.
+.
+Epoch 30/30
+64/64 [==============================] - 15s 230ms/step - loss: 0.5918 - acc: 0.6753 - val_loss: 0.6116 - val_acc: 0.6755
+
+evaluating model...
+[0.6115725439829895, 0.6754807692307693]
+
+training with augmented data...
+Found 2048 images belonging to 2 classes.
+Found 832 images belonging to 2 classes.
+Epoch 1/30
+64/64 [==============================] - 23s 364ms/step - loss: 0.6949 - acc: 0.4873 - val_loss: 0.6922 - val_acc: 0.5000
+.
+.
+Epoch 30/30
+64/64 [==============================] - 16s 253ms/step - loss: 0.6404 - acc: 0.6284 - val_loss: 0.6389 - val_acc: 0.6274
+
+evaluating model...
+[0.6388574017641636, 0.6274038461538461]
+
+training a pretrained model...
+Found 2048 images belonging to 2 classes.
+Found 832 images belonging to 2 classes.
+2019-02-06 17:47:50.862501: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.01GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:51.978504: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.54GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:52.037183: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.02GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:53.105297: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.27GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:54.596092: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.54GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:55.594468: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.16GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:56.895343: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.32GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 17:47:59.394977: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.27GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+Train on 2048 samples, validate on 832 samples
+Epoch 1/30
+2048/2048 [==============================] - 2s 960us/step - loss: 0.7838 - acc: 0.7427 - val_loss: 0.4028 - val_acc: 0.8017
+.
+.
+Epoch 30/30
+2048/2048 [==============================] - 2s 1ms/step - loss: 0.0185 - acc: 0.9932 - val_loss: 0.7792 - val_acc: 0.8834
+
+Train on 2048 samples, validate on 832 samples
+Epoch 1/30
+2048/2048 [==============================] - 2s 1ms/step - loss: 0.0172 - acc: 0.9937 - val_loss: 0.8731 - val_acc: 0.8738
+.
+.
+Epoch 30/30
+2048/2048 [==============================] - 2s 1ms/step - loss: 0.0028 - acc: 0.9985 - val_loss: 1.0241 - val_acc: 0.8822
+
+evaluating the model...
+832/832 [==============================] - 0s 154us/step
+[1.0241023495685881, 0.8822115384615384]
+
+finetuning model...
+Found 2048 images belonging to 2 classes.
+Found 832 images belonging to 2 classes.
+Epoch 1/30
+2019-02-06 17:53:05.978904: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.20GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+64/64 [==============================] - 229s 4s/step - loss: 0.4371 - acc: 0.8643 - val_loss: 0.4219 - val_acc: 0.8786
+.
+.
+Epoch 30/30
+64/64 [==============================] - 104s 2s/step - loss: 0.0105 - acc: 0.9976 - val_loss: 0.6218 - val_acc: 0.9099
+
+evaluating the model...
+[0.6217983141070642, 0.9098557692307693]
+
+predicting images...
+2019-02-06 19:41:24.230584: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\platform\cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2019-02-06 19:41:25.081919: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\gpu\gpu_device.cc:1105] Found device 0 with properties:
+name: GeForce GTX 1050 major: 6 minor: 1 memoryClockRate(GHz): 1.493
+pciBusID: 0000:02:00.0
+totalMemory: 2.00GiB freeMemory: 1.61GiB
+2019-02-06 19:41:25.102920: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1050, pci bus id: 0000:02:00.0, compute capability: 6.1)
+2019-02-06 19:41:26.984359: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.05GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 19:41:27.074388: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.05GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 19:41:27.146937: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.07GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+2019-02-06 19:41:27.208013: W C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\36\tensorflow\core\common_runtime\bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.14GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+
+cat.5000.jpg [[0.]]
+cat.5001.jpg [[0.]]
+cat.5002.jpg [[0.]]
+cat.5003.jpg [[0.00606196]]
+cat.5004.jpg [[0.]]
+cat.5005.jpg [[1.]]
+cat.5006.jpg [[1.]]
+cat.5007.jpg [[0.]]
+cat.5008.jpg [[1.]]
+cat.5009.jpg [[0.]]
+dog.5000.jpg [[1.]]
+dog.5001.jpg [[1.]]
+dog.5002.jpg [[1.]]
+dog.5003.jpg [[1.]]
+dog.5004.jpg [[1.]]
+dog.5005.jpg [[1.]]
+dog.5006.jpg [[1.]]
+dog.5007.jpg [[1.]]
+dog.5008.jpg [[1.]]
+dog.5009.jpg [[1.]]
