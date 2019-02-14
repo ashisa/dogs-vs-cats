@@ -64,9 +64,35 @@ from keras.optimizers import SGD
 from keras.optimizers import RMSprop
 from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import array_to_img
+from keras.preprocessing.image import img_to_array
+from keras.preprocessing.image import load_img
 from PIL import Image
 
 datagen = ImageDataGenerator(rescale=1. / 255)
+
+def keras_augment():
+    datagen = ImageDataGenerator(
+        rotation_range=40,
+        width_shift_range=0.2,
+        height_shift_range=0.2,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True,
+        fill_mode='nearest')
+
+    image = load_img('data/train/dogs/dog.0.jpg')
+    x = img_to_array(image)  
+    x = x.reshape((1,) + x.shape)  # this is a Numpy array with shape (1, 3, 150, 150)
+
+    # the .flow() command below generates batches of randomly transformed images
+    # and saves the results to the `preview/` directory
+    i = 0
+    for batch in datagen.flow(x, batch_size=1,
+                              save_to_dir='preview', save_prefix='dog', save_format='jpeg'):
+        i += 1
+        if i > 20:
+            break  # otherwise the generator would loop indefinitely
 
 def small_cnn():
     # a simple stack of 3 convolution layers with a ReLU activation and
@@ -140,7 +166,7 @@ def train_augmented_data():
     # Augment images and their classes for train and validation sets
     train_datagen = ImageDataGenerator(rescale=1. / 255,        # normalize pixel values to [0,1]
             shear_range=0.2,       # randomly applies shearing transformation
-            zoom_range=0.2,        # randomly applies shearing transformation
+            zoom_range=0.2,        # randomly applies zoom transformation
             horizontal_flip=True)  # randomly flip the images
 
     # same code as before
@@ -331,6 +357,9 @@ def predict_image():
             print(name, out)
 
 def main():
+    ### Augmenting data
+    #keras_augment()
+
     ### 1 - build a small cnn model
     #print('training simple cnn...')
     #model, validation_generator, validation_samples = train_smallcnn()
