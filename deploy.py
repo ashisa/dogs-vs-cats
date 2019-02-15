@@ -21,12 +21,14 @@ with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 
 # Register a trained model
+print('Registering model...')
 model = Model.register(model_path = "modelfiles",
                        model_name = "dogs-vs-cat",
                        description = "ready lab 314",
                        workspace = ws)
 
 # Image configuration
+print('Creating image configuration...')
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  runtime = "python",
                                                  conda_file = "myenv.yml",
@@ -34,6 +36,7 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 
 # Register the image from the image configuration in ACR
+print('Creating and registering image with workspace...')
 image = ContainerImage.create(name = "dogscats", 
                               models = [model],
                               image_config = image_config,
@@ -44,13 +47,15 @@ image.wait_for_creation(show_output=True)
 print(image.image_build_log_uri)
 
 # Deploy to ACI
+print('Creating ACI deployment configuration...')
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 2, 
                                                memory_gb = 2, 
                                                tags = {"data": "dogscatsmodel", "type": "classification"}, 
                                                description = 'Dogs vs Cats classification service')
 
 
-service_name = 'dogscats-w3'
+print('Starting web service deployment...')
+service_name = 'dogscats-1502-1'
 service = Webservice.deploy_from_image(deployment_config = aciconfig,
                                             image = image,
                                             name = service_name,
@@ -58,4 +63,5 @@ service = Webservice.deploy_from_image(deployment_config = aciconfig,
 service.wait_for_deployment(show_output = True)
 
 print(service.state)
+print('Fetching the scoring endpoint URI...')
 print(service.scoring_uri)
