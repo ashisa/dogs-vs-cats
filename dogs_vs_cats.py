@@ -358,7 +358,7 @@ def predict_image():
 
 def main():
     ### Augmenting data
-    #keras_augment()
+    keras_augment()
 
     ### 1 - build a small cnn model
     #print('training simple cnn...')

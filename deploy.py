@@ -12,10 +12,9 @@ ws=Workspace.from_config('aml_config/config.json', auth_config)
 ws.get_details()
 
 myenv = CondaDependencies()
-myenv.add_conda_package("numpy")
 myenv.add_conda_package("keras")
 myenv.add_conda_package("tensorflow")
-myenv.add_conda_package("PIL")
+myenv.add_conda_package("pillow")
 
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
