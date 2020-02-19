@@ -18,7 +18,7 @@ train_data_dir = 'data/train'
 validation_data_dir = 'data/validation'
 img_width, img_height = 150, 150
 batch_size = 32
-epochs = 30
+epochs = 1
 train_samples = 2048
 validation_samples = 832
 desired_size = 150
@@ -361,12 +361,13 @@ def main():
     keras_augment()
 
     ### 1 - build a small cnn model
-    #print('training simple cnn...')
-    #model, validation_generator, validation_samples = train_smallcnn()
+    print('training simple cnn...')
+    model, validation_generator, validation_samples = train_smallcnn()
+    print('training completed.')
     
-    #print('evaluating model...')
-    #eval = evaluate(model, validation_generator, validation_samples)
-    #print(eval)
+    print('evaluating model...')
+    eval = evaluate(model, validation_generator, validation_samples)
+    print(eval)
 
     ### 2 - training with augmented data, useful for increasing accuracy
     #print('training with augmented data...')
