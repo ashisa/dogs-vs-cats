@@ -365,9 +365,9 @@ def main():
     model, validation_generator, validation_samples = train_smallcnn()
     print('training completed.')
     
-    print('evaluating model...')
-    eval = evaluate(model, validation_generator, validation_samples)
-    print(eval)
+    #print('evaluating model...')
+    #eval = evaluate(model, validation_generator, validation_samples)
+    #print(eval)
 
     ### 2 - training with augmented data, useful for increasing accuracy
     #print('training with augmented data...')
